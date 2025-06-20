@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Project pengenalan Web</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #fefefe;
+        }
+        .Navbar {
+            position: relative;
+            background-image: url('wallhaven-x6mxll.png');
+            background-size: cover;
+            background-position: center;
+            padding: 15px 0;
+            text-align: center;
+            overflow: hidden;
+            color: rgb(224, 222, 222);
+        }
+        .marquee-text {
+            position: absolute;
+            width: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+            top: 10px;
+            left: 0;
+            font-size: 24px;
+            font-weight: bold;
+            animation: marquee 15s linear infinite;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        @keyframes marquee {
+            0%   { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        .Navbar img {
+            display: block;
+            margin: 50px auto 10px;
+            border-radius: 100px;
+            border: 5px solid rgb(241, 241, 241);
+            width: 130px;
+            height: 130px;
+            object-fit: cover;
+            position: relative;
+            z-index: 1;
+        }
+        .nama {
+            color: white;
+            margin: 10px 0 5px;
+            position: relative;
+            z-index: 1;
+        }
+        .link {
+            margin: 0;
+            padding: 0;
+            position: relative;
+            z-index: 1;
+        }
+        .link a {
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+            margin: 0 8px;
+            font-weight: bold;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        .navigation-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .nav-btn {
+            background: #2e3db1;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        .nav-btn:hover {
+            background: #000000;
+            transform: translateY(-2px);
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(5, 1, 1, 0.7);
+        }
+        .modal-content {
+            background-color: #ffffff;
+            margin: 10% auto;
+            padding: 25px;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 600px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            position: relative;
+            animation: modalopen 0.4s;
+        }
+        @keyframes modalopen {
+            from {opacity: 0; transform: translateY(-50px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+        .close-btn {
+            position: absolute;
+            right: 15px;
+            top: 10px;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 0 10px;
+            }
+            .navigation-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .nav-btn {
+                width: 100%;
+                text-align: center;
+            }
+            .modal-content {
+                width: 90%;
+                margin: 20% auto;
+            }
+            .nama {
+                font-size: 20px;
+            }
+            .link a {
+                margin: 0 5px;
+                font-size: 14px;
+            }
+            .marquee-text {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="Navbar">
+        <div class="marquee-text">WELCOME TO MY PROFIL MOTHER FUCKER</div>
+        <img src="WhatsApp Image 2024-09-19 at 17.40.16_fe1c8718.jpg" alt="Foto Rafi Dzakwan Maulana" />
+        <h2 class="nama">Rafi Dzakwan Maulana</h2>
+        <p class="link">
+            <a href="index1.html">Home</a> |
+            <a href="Toko online.Html">Toko Online</a> |
+            <a href="https://www.lp3i.ac.id/">Website LP3I</a>
+        </p>
+    </nav>
+
+    <div class="container">
+        <div class="navigation-buttons">
+            <button onclick="openModal('tentangModal')" class="nav-btn">Tentang Saya</button>
+            <button onclick="openModal('pendidikanModal')" class="nav-btn">Pendidikan</button>
+            <button onclick="openModal('keahlianModal')" class="nav-btn">Keahlian</button>
+        </div>
+    </div>
+
+    <div id="tentangModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('tentangModal')">&times;</span>
+            <h2>Tentang Saya</h2>
+            <p>Saya Rafi Dzakwan Maulana, lulusan Politeknik LP3I jurusan Infomatika Komputer. Berpengalaman dalam HTML, CSS, JavaScript, dan Python. Saya tertarik pada pengembangan web dan pemrograman, serta senang belajar hal baru. Di waktu luang, saya menikmati membaca komik dan bepergian dengan motor ke tempat yang tenang untuk mencari inspirasi.</p>
+        </div>
+    </div>
+
+    <div id="pendidikanModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('pendidikanModal')">&times;</span>
+            <h2>Pendidikan</h2>
+            <ul>
+                <li>Sarjana Teknik Informatika - Politeknik LP3I Padang (2024-2028)</li>
+                <li>SMA Negeri 2 Lubuk Sikaping (2021-2024)</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="keahlianModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('keahlianModal')">&times;</span>
+            <h2>Keahlian</h2>
+            <ul>
+                <li>HTML, CSS, JavaScript</li>
+                <li>Python</li>
+                <li>Responsive Web Design</li>
+                <li>Desain</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+            document.body.style.overflow = 'hidden'; 
+        }
+        
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto'; 
+        }
+        
+        window.onclick = function(event) {
+            if (event.target.className === 'modal') {
+                event.target.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+    </script>
+</body>
+</html>
